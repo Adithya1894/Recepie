@@ -14,13 +14,7 @@ public class Recepie {
 
     private String description;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     private Integer prepTime;
     private Integer cookTime;
@@ -38,6 +32,8 @@ public class Recepie {
     public Integer getPrepTime() {
         return prepTime;
     }
+
+
 
     public void setPrepTime(Integer prepTime) {
         this.prepTime = prepTime;
@@ -97,6 +93,14 @@ public class Recepie {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 
