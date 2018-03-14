@@ -1,4 +1,4 @@
-package com.recepie.Recepie;
+package com.recepie.recepie;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

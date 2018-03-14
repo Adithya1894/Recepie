@@ -1,4 +1,4 @@
-package com.recepie.Recepie;
+package com.recepie.recepie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
