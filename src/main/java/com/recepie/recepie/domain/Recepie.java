@@ -2,6 +2,7 @@ package com.recepie.recepie.domain;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recepie {
@@ -21,6 +22,11 @@ public class Recepie {
     private String source;
     private String url;
     private String directions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recepie")
+    private Set<Ingredient> ingredients;
+
+
 
     @Lob
     private Byte[] images;
