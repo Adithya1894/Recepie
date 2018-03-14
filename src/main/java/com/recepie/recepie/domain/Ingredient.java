@@ -17,6 +17,11 @@ public class Ingredient {
     private Recepie recepie;
 
 
+    @OneToOne
+    private UnitOfMeasure unitOfMeasure;
+
+
+
     public Long getId() {
         return Id;
     }
