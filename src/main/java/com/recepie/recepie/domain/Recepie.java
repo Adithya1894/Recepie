@@ -1,6 +1,5 @@
 package com.recepie.recepie.domain;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
