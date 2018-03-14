@@ -36,11 +36,16 @@ public class Recepie {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    @ManyToMany
+    @JoinTable(name = "recepie_category", joinColumns = @JoinColumn(name = "recepie_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
+
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     public Integer getPrepTime() {
         return prepTime;
     }
+
 
 
 
@@ -135,5 +140,13 @@ public class Recepie {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
