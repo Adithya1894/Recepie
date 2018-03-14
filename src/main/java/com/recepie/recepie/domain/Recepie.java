@@ -23,6 +23,8 @@ public class Recepie {
     private String url;
     private String directions;
 
+
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recepie")
     private Set<Ingredient> ingredients;
 
@@ -34,6 +36,8 @@ public class Recepie {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
     public Integer getPrepTime() {
         return prepTime;
     }
@@ -109,4 +113,27 @@ public class Recepie {
     }
 
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
 }
