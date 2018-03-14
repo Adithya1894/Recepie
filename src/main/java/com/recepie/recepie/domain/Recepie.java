@@ -1,8 +1,27 @@
 package com.recepie.recepie.domain;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
+
+@Entity
 public class Recepie {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
     private String description;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
@@ -10,8 +29,10 @@ public class Recepie {
     private String url;
     private String directions;
 
-
+    @Lob
     private Byte[] images;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
     public Integer getPrepTime() {
