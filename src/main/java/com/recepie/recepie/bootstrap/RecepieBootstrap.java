@@ -1,5 +1,6 @@
 package com.recepie.recepie.bootstrap;
 
+import com.recepie.recepie.domain.Category;
 import com.recepie.recepie.domain.Recepie;
 import com.recepie.recepie.domain.UnitOfMeasure;
 import com.recepie.recepie.repositories.CategoryRepository;
@@ -68,6 +69,48 @@ public class RecepieBootstrap implements ApplicationListener<ContextRefreshedEve
             throw new RuntimeException("Expected UOM not found");
         }
 
+
+        Optional<UnitOfMeasure> pinch = unitOfMeasureRepository.findByDescription("Pinch");
+
+        if(!pinch.isPresent()){
+            throw new RuntimeException("Expected UOM not found");
+        }
+
+        Optional<UnitOfMeasure> ounce = unitOfMeasureRepository.findByDescription("Ounce");
+
+
+        if(!ounce.isPresent()){
+            throw new RuntimeException("Expected UOM not found");
+        }
+
+
+        //getting the optianl values.
+        //if a value is present in this optional, returns that value, otherwise throws noSuchElementException
+        UnitOfMeasure eachUom1 = eachUom.get();
+
+        UnitOfMeasure teaspoon1 = teaspoon.get();
+
+        UnitOfMeasure tableSpoon1 = tablespoon.get();
+
+        UnitOfMeasure cup1 = cup.get();
+
+        UnitOfMeasure pinch1 = pinch.get();
+
+        UnitOfMeasure ounce1 = ounce.get();
+
+        //getting the categories of food from the database
+
+        Optional<Category> americanCategoryOptional = categoryRepository.findByDescription("American");
+
+        if(!americanCategoryOptional.isPresent()){
+            throw new RuntimeException("Expected Category not found");
+        }
+
+        Optional<Category> mexicanCategoryOptional = categoryRepository.findByDescription("Mexican");
+
+        if(!mexicanCategoryOptional.isPresent()){
+            throw new RuntimeException("Expected category not found");
+        }
 
 
 
