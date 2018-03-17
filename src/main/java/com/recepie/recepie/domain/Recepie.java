@@ -2,6 +2,7 @@ package com.recepie.recepie.domain;
 
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Set;
 
 @Entity
@@ -148,5 +149,28 @@ public class Recepie {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    /**
+     * To string method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Recepie{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", prepTime=" + prepTime +
+                ", cookTime=" + cookTime +
+                ", servings=" + servings +
+                ", source='" + source + '\'' +
+                ", url='" + url + '\'' +
+                ", directions='" + directions + '\'' +
+                ", ingredients=" + ingredients +
+                ", images=" + Arrays.toString(images) +
+                ", notes=" + notes +
+                ", categories=" + categories +
+                ", difficulty=" + difficulty +
+                '}';
     }
 }

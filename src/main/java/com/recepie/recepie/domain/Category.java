@@ -1,17 +1,23 @@
 package com.recepie.recepie.domain;
-
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * Creates a table with the title Entity
+ */
 @Entity
 public class Category {
 
-    @Id
+    /**
+     * This is the Id field and it is generated as an identity
+     */
+    @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     private String description;
 
+    //this is mapped many to many and mapped by the column categories
     @ManyToMany(mappedBy = "categories")
     private Set<Recepie> recepies;
 
