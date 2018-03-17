@@ -3,6 +3,7 @@ package com.recepie.recepie.domain;
 
 import javax.persistence.*;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,7 +12,6 @@ public class Recepie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     private String description;
 
@@ -22,12 +22,14 @@ public class Recepie {
     private Integer servings;
     private String source;
     private String url;
+    //made this large object since the description is quite large
+    @Lob
     private String directions;
 
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recepie")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
 
 
@@ -39,7 +41,7 @@ public class Recepie {
 
     @ManyToMany
     @JoinTable(name = "recepie_category", joinColumns = @JoinColumn(name = "recepie_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
