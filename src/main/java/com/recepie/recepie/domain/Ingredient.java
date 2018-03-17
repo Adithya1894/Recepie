@@ -29,7 +29,15 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
 
+    public Ingredient() {
+    }
 
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recepie recepie) {
+        this.description = description;
+        this.amount = amount;
+        this.recepie = recepie;
+        this.unitOfMeasure = unitOfMeasure;
+    }
 
     public Long getId() {
         return Id;
