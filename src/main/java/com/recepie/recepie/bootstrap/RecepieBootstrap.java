@@ -198,7 +198,7 @@ public class RecepieBootstrap implements ApplicationListener<ContextRefreshedEve
         tacoNotes.setRecepie(tacosRecipe);
         tacosRecipe.setNotes(tacoNotes);
 
-
+        //Adding the ingredients for the recepie
         tacosRecipe.getIngredients().add(new Ingredient("Ancho Chili Powder", new BigDecimal(2), tableSpoon1, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("Dried Oregano", new BigDecimal(1), teaspoon1, tacosRecipe));
         tacosRecipe.getIngredients().add(new Ingredient("Dried Cumin", new BigDecimal(1), teaspoon1, tacosRecipe));
